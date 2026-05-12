@@ -2,139 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ink: #0a0a0a;
+  --fg: #f4f4f5;
+  --muted: #a3a3a3;
+  --subtle: #525252;
+  --rule: rgba(255, 255, 255, 0.08);
+  --brand: #10b981;
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #030712;
-  color: #f9fafb;
-  background-image:
-    radial-gradient(rgba(16, 185, 129, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  background-attachment: fixed;
+  background: var(--ink);
+  color: var(--fg);
+  font-feature-settings: "ss01" on, "cv11" on;
 }
 
 @layer utilities {
-  .glass {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  .display {
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
   }
 
-  .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(16, 185, 129, 0.2);
+  .marker {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brand);
   }
 
-  .glass-strong {
-    background: rgba(16, 185, 129, 0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    box-shadow:
-      0 0 0 1px rgba(16, 185, 129, 0.1),
-      0 20px 80px -20px rgba(16, 185, 129, 0.25);
-  }
-
-  .gradient-text {
-    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .section-divider {
-    position: relative;
+  .rule {
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(16, 185, 129, 0.15) 20%,
-      rgba(16, 185, 129, 0.4) 50%,
-      rgba(16, 185, 129, 0.15) 80%,
-      transparent 100%
-    );
+    background: var(--rule);
+    width: 100%;
   }
 
-  .section-divider::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #10b981;
-    box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+  .link-quiet {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    transition: all 0.2s;
   }
 
-  .gradient-border {
-    position: relative;
-  }
-
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+  .link-quiet:hover {
+    text-decoration-color: var(--brand);
+    color: var(--brand);
   }
 }
 
-/* Custom scrollbar */
+::selection {
+  background: var(--brand);
+  color: var(--ink);
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: var(--ink);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: rgba(255, 255, 255, 0.24);
 }
 
-/* Range slider styling */
+/* Range slider — minimal */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 6px;
-  background: #1f2937;
-  border-radius: 3px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
   outline: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 22px;
-  height: 22px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: #10b981;
+  background: var(--brand);
   cursor: pointer;
-  border: 2px solid #030712;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  border: 2px solid var(--ink);
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: #10b981;
+  background: var(--brand);
   cursor: pointer;
-  border: 2px solid #030712;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  border: 2px solid var(--ink);
 }

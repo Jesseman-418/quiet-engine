@@ -1,83 +1,61 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden pt-20">
-      {/* Ambient gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[480px] h-[480px] bg-brand-500/10 rounded-full blur-[140px] pointer-events-none animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-[360px] h-[360px] bg-brand-600/8 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Vertical fade — hides bg dots at top + bottom edges */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-transparent to-gray-950 pointer-events-none" />
-
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-brand-400 mb-10">
-          <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse-slow" />
-          Quiet Engine &mdash; founding partners, 3 spots open
+    <section className="relative min-h-screen flex flex-col justify-end pt-32 pb-16 px-6 lg:px-12">
+      <div className="max-w-6xl mx-auto w-full">
+        {/* Top marker */}
+        <div className="flex items-center justify-between mb-24 md:mb-32">
+          <span className="marker">A creator agency · 2026</span>
+          <span className="marker hidden md:inline">3 founding spots</span>
         </div>
 
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] mb-8">
-          <span className="block text-gray-100">I build the product.</span>
-          <span className="block text-gray-100">I write the emails.</span>
-          <span className="block gradient-text mt-2">You stay the face.</span>
+        {/* Headline */}
+        <h1 className="display text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[7.5vw] leading-[0.95]">
+          <span className="block">We build the product.</span>
+          <span className="block">We write the emails.</span>
+          <span className="block italic text-fg-muted">
+            You stay the face<span className="not-italic text-brand">.</span>
+          </span>
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-          Done-for-you product creation and email copy for creators with
-          audience.{" "}
-          <span className="text-gray-200 font-medium">
-            Pure rev share, monthly retainer, or both bundled.
-          </span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-          <a
-            href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-lg transition-all hover:shadow-2xl hover:shadow-brand-500/30 hover:-translate-y-0.5"
-          >
-            Book a Strategy Call
-          </a>
-          <a
-            href="#packages"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl glass glass-hover text-gray-200 font-medium text-lg transition-all"
-          >
-            See the 3 services
-          </a>
-        </div>
-
-        {/* Stat strip */}
-        <div className="grid grid-cols-3 gap-6 sm:gap-12 max-w-2xl mx-auto pt-10 border-t border-white/5">
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold gradient-text">3</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-2">
-              Service Tiers
-            </div>
+        {/* Subhead + CTA */}
+        <div className="grid md:grid-cols-12 gap-8 md:gap-12 mt-16 md:mt-20">
+          <div className="md:col-span-7">
+            <p className="text-xl md:text-2xl text-fg-muted font-light leading-snug max-w-2xl">
+              A done-for-you product build + email engine for creators with
+              10K–100K audience. Three service tiers — pure rev share, monthly
+              retainer, or both bundled.
+            </p>
           </div>
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold gradient-text">4w</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-2">
-              Build to Launch
-            </div>
-          </div>
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold gradient-text">1h/wk</div>
-            <div className="text-xs uppercase tracking-wider text-gray-500 mt-2">
-              Your Time
-            </div>
+
+          <div className="md:col-span-4 md:col-start-9 flex items-end">
+            <a
+              href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-baseline gap-3 text-lg hover:text-brand transition-colors"
+            >
+              <span className="display text-2xl">Book a strategy call</span>
+              <span aria-hidden className="text-brand group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </a>
           </div>
         </div>
 
-        {/* Built-for note */}
-        <p className="text-xs text-gray-600 mt-8 max-w-md mx-auto">
-          Built for creators with 10K&ndash;100K audience on YouTube, Newsletter,
-          or LinkedIn.
-        </p>
-      </div>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-        <span className="text-xs text-gray-600">Scroll</span>
-        <div className="w-5 h-8 rounded-full border border-gray-700 flex items-start justify-center p-1">
-          <div className="w-1 h-2 rounded-full bg-brand-500 animate-bounce" />
+        {/* Bottom stat row */}
+        <div className="grid grid-cols-3 gap-8 md:gap-16 mt-24 pt-8 border-t border-white/[0.08] text-sm">
+          <div>
+            <div className="display text-3xl md:text-4xl">3</div>
+            <div className="text-fg-muted mt-1">Service tiers</div>
+          </div>
+          <div>
+            <div className="display text-3xl md:text-4xl">4 wks</div>
+            <div className="text-fg-muted mt-1">Build to launch</div>
+          </div>
+          <div>
+            <div className="display text-3xl md:text-4xl">1 hr/wk</div>
+            <div className="text-fg-muted mt-1">Your time</div>
+          </div>
         </div>
       </div>
     </section>

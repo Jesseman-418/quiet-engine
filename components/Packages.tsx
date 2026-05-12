@@ -1,10 +1,11 @@
 const packages = [
   {
     name: "Ghost Operating",
-    price: "Rev Share",
-    period: "",
+    price: "Rev share",
+    sub: "60/40 you / me",
+    upfront: "$0 upfront",
     description:
-      "I build a digital product on your existing content and audience. You stay the face. We split sales.",
+      "I build a digital product on your existing audience. You stay the face. We split sales.",
     features: [
       "Full product build (course, cohort, membership, or template pack)",
       "Sales page copywriting + design",
@@ -12,136 +13,110 @@ const packages = [
       "14-day launch sequence scripted for IG stories",
       "DM + FAQ handling during launch",
       "Post-launch optimization",
-      "$0 upfront — 60/40 revenue split (you / me)",
+      "12-month term · 30-day pause clause",
     ],
     highlight: false,
-    cta: "Zero Cash Risk",
+    label: "Zero cash risk",
   },
   {
     name: "Full Stack",
     price: "$1,500",
-    period: "/mo + 65/35",
+    sub: "/mo + 65/35 rev share",
+    upfront: "Discounted retainer",
     description:
-      "Both services bundled. I build the product. I write every email that sells it. You compound monthly cash + product upside.",
+      "Both services bundled. I build the product. I write every email that sells it.",
     features: [
       "Everything in Ghost Operating",
       "Everything in Email Engine",
+      "65/35 product split — better than Ghost Operating",
       "Discounted retainer ($1,500/mo vs $2,000 standalone)",
-      "65/35 product revenue split (you keep 65% — better than Ghost Operating)",
-      "Launch emails included in retainer — no extra fee",
+      "Launch emails included — no extra fee",
       "Priority queue: your product + emails ship first",
-      "12-month term, 30-day pause clause either side",
+      "12-month term · 30-day pause clause",
     ],
     highlight: true,
-    cta: "Recommended",
+    label: "Recommended",
   },
   {
     name: "Email Engine",
     price: "$2,000",
-    period: "/mo",
+    sub: "/mo retainer",
+    upfront: "3-month minimum",
     description:
-      "I write your sales emails, launch sequences, and newsletter on a monthly retainer. You give voice memos. I ship.",
+      "I write your sales emails, launch sequences, and newsletter. You give voice memos. I ship.",
     features: [
       "12 emails / month (newsletter, sales, launch, nurture)",
       "Hook + subject line testing per send",
-      "Voice-matched from your podcast / YouTube / Instagram",
+      "Voice-matched from your podcast / YouTube / IG",
       "Audience segmentation strategy",
-      "Monthly performance review (open rates, CTR, revenue)",
-      "ESP setup if you don't have one (Beehiiv, ConvertKit, etc.)",
+      "Monthly performance review (open rate, CTR, revenue)",
+      "ESP setup (Beehiiv, ConvertKit, etc.)",
       "3-month minimum, then month-to-month",
     ],
     highlight: false,
-    cta: "Predictable Cash",
+    label: "Predictable cash",
   },
 ];
 
 export default function Packages() {
   return (
-    <section id="packages" className="py-24 px-6">
+    <section id="services" className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-brand-400 text-sm font-medium tracking-wider uppercase mb-4">
-            Services
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Three ways to
-            <br />
-            <span className="gradient-text">monetize your audience</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Pick the model that fits your cash flow + risk tolerance. Full
-            Stack creators keep a higher rev split AND get the email engine
-            running between launches — that&apos;s why it&apos;s the default.
-          </p>
+        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-28">
+          <div className="md:col-span-2">
+            <span className="marker">04 — Services</span>
+          </div>
+          <div className="md:col-span-8">
+            <h2 className="display text-4xl md:text-6xl leading-[0.95] mb-6">
+              Three ways to{" "}
+              <span className="italic text-fg-muted">monetize</span>.
+            </h2>
+            <p className="text-lg text-fg-muted max-w-xl">
+              Pick the model that fits your cash flow and risk tolerance. Most
+              creators choose Full Stack — the bundle solves the closed loop of
+              product + engine.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid md:grid-cols-3 gap-px bg-white/[0.08] border border-white/[0.08]">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={`rounded-2xl p-8 transition-all duration-300 relative flex flex-col ${
-                pkg.highlight
-                  ? "glass-strong md:-translate-y-3 md:scale-[1.04] z-10"
-                  : "glass glass-hover"
+              className={`bg-ink p-8 md:p-10 flex flex-col ${
+                pkg.highlight ? "md:-mt-4 md:-mb-4 bg-ink-800 ring-1 ring-brand/30" : ""
               }`}
             >
-              {pkg.cta && (
-                <span
-                  className={`absolute -top-3 left-8 px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
-                    pkg.highlight
-                      ? "bg-brand-500 text-white shadow-lg shadow-brand-500/40"
-                      : "bg-white/5 text-gray-400 border border-white/10"
-                  }`}
-                >
-                  {pkg.cta}
-                </span>
-              )}
-
-              <h3
-                className={`text-xl font-bold mb-2 ${
-                  pkg.highlight ? "text-white" : "text-gray-100"
-                }`}
-              >
-                {pkg.name}
-              </h3>
-              <div className="flex items-baseline gap-1 mb-4 min-h-[3rem]">
-                <span
-                  className={`text-3xl font-bold ${
-                    pkg.highlight ? "text-white" : "gradient-text"
-                  }`}
-                >
-                  {pkg.price}
-                </span>
-                {pkg.period && (
-                  <span className="text-gray-400 text-sm">{pkg.period}</span>
-                )}
-              </div>
-              <p className="text-sm text-gray-400 mb-6 leading-relaxed min-h-[5rem]">
-                {pkg.description}
-              </p>
-
-              <ul className="space-y-3 mb-8 flex-grow">
-                {pkg.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-3 text-sm text-gray-300"
-                  >
-                    <svg
-                      className={`w-5 h-5 shrink-0 mt-0.5 ${
-                        pkg.highlight ? "text-brand-300" : "text-brand-400"
+              <div className="mb-8">
+                <div className="flex items-baseline justify-between mb-4">
+                  <h3 className="display text-2xl">{pkg.name}</h3>
+                  {pkg.label && (
+                    <span
+                      className={`text-[10px] uppercase tracking-[0.18em] font-medium ${
+                        pkg.highlight ? "text-brand" : "text-fg-subtle"
                       }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {f}
+                      {pkg.label}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="display text-4xl md:text-5xl">{pkg.price}</span>
+                  <span className="text-fg-muted text-sm">{pkg.sub}</span>
+                </div>
+                <div className="text-xs text-fg-subtle font-mono uppercase tracking-wider">
+                  {pkg.upfront}
+                </div>
+              </div>
+
+              <p className="text-fg-muted mb-8 leading-relaxed">{pkg.description}</p>
+
+              <ul className="space-y-3 mb-10 flex-grow">
+                {pkg.features.map((f) => (
+                  <li key={f} className="flex gap-3 text-sm text-fg/85 leading-snug">
+                    <span className="text-brand mt-1 shrink-0">—</span>
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -150,21 +125,21 @@ export default function Packages() {
                 href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block text-center px-6 py-3.5 rounded-xl font-semibold transition-all ${
+                className={`block text-center py-3.5 text-sm tracking-wide transition-colors ${
                   pkg.highlight
-                    ? "bg-brand-500 hover:bg-brand-600 text-white hover:shadow-2xl hover:shadow-brand-500/40 hover:-translate-y-0.5"
-                    : "glass glass-hover text-gray-200"
+                    ? "bg-brand text-ink hover:bg-brand-400"
+                    : "border border-fg/15 text-fg hover:border-brand hover:text-brand"
                 }`}
               >
-                Book a Call
+                Book a strategy call →
               </a>
             </div>
           ))}
         </div>
 
-        <p className="text-center text-sm text-gray-500 mt-12 max-w-2xl mx-auto">
-          Not sure which? Book a call. I&apos;ll do the math on your audience
-          + content stack and tell you straight which model fits.
+        <p className="text-center text-sm text-fg-muted mt-12 max-w-2xl mx-auto">
+          Not sure which? Book a call. I&apos;ll run the math on your audience
+          live and tell you which fits — even if it&apos;s &quot;not yet.&quot;
         </p>
       </div>
     </section>

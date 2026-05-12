@@ -1,44 +1,61 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Quiet Engine | Product Build + Email Engine for Creators",
+  title: "Quiet Engine — Product build + email engine for creators",
   description:
-    "I build the digital product. I write the emails that sell it. You stay the face. Three services — pure rev share, monthly retainer, or both bundled.",
+    "We build the digital product. We write the emails that sell it. You stay the face. Three service tiers for creators with 10K–100K audience.",
   keywords: [
     "quiet engine",
-    "creator partnerships",
-    "digital product launch",
-    "revenue share",
-    "email copywriting retainer",
     "creator agency",
+    "digital product launch",
+    "revenue share partnership",
+    "email copywriting retainer",
     "ghostwriting for creators",
-    "course creation",
+    "course creation agency",
     "newsletter monetization",
-    "creator economy",
-    "audience monetization",
   ],
   openGraph: {
-    title: "Quiet Engine | Product Build + Email Engine for Creators",
+    title: "Quiet Engine — Product build + email engine for creators",
     description:
-      "I build the digital product. I write the emails. You stay the face. Three services — rev share, retainer, or both.",
+      "We build the digital product. We write the emails. You stay the face. Three service tiers.",
     type: "website",
     locale: "en_US",
     siteName: "Quiet Engine",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quiet Engine | Product Build + Email Engine for Creators",
+    title: "Quiet Engine — Product build + email engine for creators",
     description:
-      "I build the digital product. I write the emails. You stay the face.",
+      "We build the digital product. We write the emails. You stay the face.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0a0a0a",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -47,8 +64,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}
+    >
+      <body className="font-sans bg-ink text-fg">{children}</body>
     </html>
   );
 }

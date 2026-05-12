@@ -10,176 +10,148 @@ export default function Calculator() {
   const price = 497;
   const creatorCut = tier === "fullstack" ? 0.65 : 0.6;
 
-  const engagedAudience = Math.round(followers * engagementRate);
-  const buyers = Math.round(engagedAudience * conversionRate);
-  const grossRevenue = buyers * price;
-  const yourCut = Math.round(grossRevenue * creatorCut);
+  const engaged = Math.round(followers * engagementRate);
+  const buyers = Math.round(engaged * conversionRate);
+  const gross = buyers * price;
+  const yourCut = Math.round(gross * creatorCut);
 
-  const formatNumber = (n: number) =>
-    new Intl.NumberFormat("en-US").format(n);
-
-  const formatCurrency = (n: number) =>
+  const fmtN = (n: number) => new Intl.NumberFormat("en-US").format(n);
+  const fmtUSD = (n: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       maximumFractionDigits: 0,
     }).format(n);
-
-  const formatFollowers = (n: number) => {
-    if (n >= 1000) return `${(n / 1000).toFixed(0)}K`;
-    return n.toString();
-  };
+  const fmtK = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(0)}K` : String(n));
 
   return (
-    <section id="calculator" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-brand-400 text-sm font-medium tracking-wider uppercase mb-4">
-            Revenue Calculator
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            See what your audience
-            <br />
-            <span className="gradient-text">is worth</span>
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Drag the slider to see a realistic revenue projection for a single
-            product launch based on your follower count.
-          </p>
+    <section id="math" className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-12 gap-8 mb-20">
+          <div className="md:col-span-2">
+            <span className="marker">05 — Math</span>
+          </div>
+          <div className="md:col-span-8">
+            <h2 className="display text-4xl md:text-6xl leading-[0.95] mb-6">
+              What your audience{" "}
+              <span className="italic text-fg-muted">is worth</span>.
+            </h2>
+            <p className="text-lg text-fg-muted max-w-xl">
+              Realistic revenue projection from a single product launch.
+              Conservative defaults — 3% engagement, 3% conversion, $497 price.
+            </p>
+          </div>
         </div>
 
-        {/* Calculator card */}
-        <div className="glass rounded-3xl p-8 md:p-12">
-          {/* Tier toggle */}
-          <div className="mb-10">
-            <label className="text-sm text-gray-400 block mb-3">Service Tier</label>
-            <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-white/[0.03] border border-white/5">
-              <button
-                onClick={() => setTier("ghost")}
-                className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
-                  tier === "ghost"
-                    ? "bg-brand-500/20 text-brand-300 border border-brand-500/30"
-                    : "text-gray-500 hover:text-gray-300"
-                }`}
-              >
-                Ghost Operating (60%)
-              </button>
-              <button
-                onClick={() => setTier("fullstack")}
-                className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
-                  tier === "fullstack"
-                    ? "bg-brand-500/20 text-brand-300 border border-brand-500/30"
-                    : "text-gray-500 hover:text-gray-300"
-                }`}
-              >
-                Full Stack (65%)
-              </button>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Controls */}
+          <div className="lg:col-span-5 space-y-10">
+            <div>
+              <label className="marker block mb-3">Service tier</label>
+              <div className="grid grid-cols-2 border border-white/[0.08]">
+                <button
+                  onClick={() => setTier("ghost")}
+                  className={`py-3 text-sm transition-colors ${
+                    tier === "ghost"
+                      ? "bg-fg/[0.05] text-fg"
+                      : "text-fg-muted hover:text-fg"
+                  }`}
+                >
+                  Ghost (60%)
+                </button>
+                <button
+                  onClick={() => setTier("fullstack")}
+                  className={`py-3 text-sm transition-colors border-l border-white/[0.08] ${
+                    tier === "fullstack"
+                      ? "bg-fg/[0.05] text-fg"
+                      : "text-fg-muted hover:text-fg"
+                  }`}
+                >
+                  Full Stack (65%)
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex justify-between items-baseline mb-3">
+                <label className="marker">Your followers</label>
+                <span className="display text-3xl text-brand">{fmtK(followers)}</span>
+              </div>
+              <input
+                type="range"
+                min={10000}
+                max={100000}
+                step={1000}
+                value={followers}
+                onChange={(e) => setFollowers(Number(e.target.value))}
+              />
+              <div className="flex justify-between text-xs text-fg-subtle mt-2 font-mono">
+                <span>10K</span>
+                <span>50K</span>
+                <span>100K</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-px bg-white/[0.08] border border-white/[0.08]">
+              {[
+                { label: "Engagement", value: "3%" },
+                { label: "Conversion", value: "3%" },
+                { label: "Price", value: "$497" },
+              ].map((s) => (
+                <div key={s.label} className="bg-ink p-4 text-center">
+                  <div className="text-xs text-fg-subtle uppercase tracking-wider mb-1">
+                    {s.label}
+                  </div>
+                  <div className="display text-xl">{s.value}</div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Slider */}
-          <div className="mb-12">
-            <div className="flex justify-between items-center mb-4">
-              <label className="text-sm text-gray-400">Your Followers</label>
-              <span className="text-2xl font-bold text-brand-400">
-                {formatFollowers(followers)}
-              </span>
-            </div>
-            <input
-              type="range"
-              min={10000}
-              max={100000}
-              step={1000}
-              value={followers}
-              onChange={(e) => setFollowers(Number(e.target.value))}
-              className="w-full"
-            />
-            <div className="flex justify-between text-xs text-gray-600 mt-2">
-              <span>10K</span>
-              <span>25K</span>
-              <span>50K</span>
-              <span>75K</span>
-              <span>100K</span>
-            </div>
-          </div>
+          {/* Funnel + result */}
+          <div className="lg:col-span-7">
+            <div className="border border-white/[0.08]">
+              <Row label="Followers" value={fmtN(followers)} />
+              <Row label="Engaged (3%)" value={fmtN(engaged)} />
+              <Row label="Buyers (3% of engaged)" value={fmtN(buyers)} />
+              <Row label="Gross revenue" value={fmtUSD(gross)} bold />
 
-          {/* Assumptions */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
-            <div className="text-center p-4 rounded-xl bg-white/[0.02]">
-              <div className="text-xs text-gray-500 mb-1">Engagement Rate</div>
-              <div className="text-lg font-semibold text-gray-300">3%</div>
+              <div className="px-6 md:px-8 py-10 bg-fg/[0.02] border-t border-white/[0.08]">
+                <div className="marker mb-3">Your cut ({Math.round(creatorCut * 100)}%)</div>
+                <div className="display text-5xl md:text-6xl text-brand mb-2">
+                  {fmtUSD(yourCut)}
+                </div>
+                <div className="text-sm text-fg-muted">
+                  From a single product launch
+                  {tier === "fullstack" && (
+                    <>
+                      <br />
+                      <span className="text-xs text-fg-subtle">
+                        + Email Engine running between launches ($1,500/mo retainer)
+                      </span>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
-            <div className="text-center p-4 rounded-xl bg-white/[0.02]">
-              <div className="text-xs text-gray-500 mb-1">Conversion Rate</div>
-              <div className="text-lg font-semibold text-gray-300">3%</div>
-            </div>
-            <div className="text-center p-4 rounded-xl bg-white/[0.02]">
-              <div className="text-xs text-gray-500 mb-1">Product Price</div>
-              <div className="text-lg font-semibold text-gray-300">$497</div>
-            </div>
-          </div>
 
-          {/* Results funnel */}
-          <div className="space-y-4 mb-10">
-            <div className="flex justify-between items-center py-3 border-b border-white/5">
-              <span className="text-gray-400">Followers</span>
-              <span className="text-gray-200 font-medium">
-                {formatNumber(followers)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center py-3 border-b border-white/5">
-              <span className="text-gray-400">
-                Engaged Audience{" "}
-                <span className="text-gray-600">(3%)</span>
-              </span>
-              <span className="text-gray-200 font-medium">
-                {formatNumber(engagedAudience)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center py-3 border-b border-white/5">
-              <span className="text-gray-400">
-                Buyers{" "}
-                <span className="text-gray-600">(3% of engaged)</span>
-              </span>
-              <span className="text-gray-200 font-medium">
-                {formatNumber(buyers)}
-              </span>
-            </div>
-            <div className="flex justify-between items-center py-3 border-b border-white/5">
-              <span className="text-gray-400">Gross Revenue</span>
-              <span className="text-gray-200 font-semibold text-lg">
-                {formatCurrency(grossRevenue)}
-              </span>
-            </div>
+            <p className="text-xs text-fg-subtle mt-4 max-w-md">
+              Conservative estimates based on industry-standard rates.
+              Actual results vary with audience quality, niche, and
+              product-market fit.
+            </p>
           </div>
-
-          {/* Your cut highlight */}
-          <div className="relative rounded-2xl bg-gradient-to-r from-brand-500/10 to-brand-600/5 border border-brand-500/20 p-8 text-center">
-            <div className="text-sm text-brand-400 font-medium mb-2">
-              Your Cut ({Math.round(creatorCut * 100)}%)
-            </div>
-            <div className="text-4xl md:text-5xl font-bold gradient-text">
-              {formatCurrency(yourCut)}
-            </div>
-            <div className="text-sm text-gray-500 mt-2">
-              From a single product launch
-              {tier === "fullstack" && (
-                <span className="block mt-1 text-xs text-brand-400/80">
-                  + Email Engine running between launches ($1,500/mo retainer)
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Disclaimer */}
-          <p className="text-xs text-gray-600 text-center mt-6">
-            These are conservative estimates based on industry-standard engagement
-            and conversion rates. Actual results vary based on audience quality,
-            niche, and product-market fit.
-          </p>
         </div>
       </div>
     </section>
+  );
+}
+
+function Row({ label, value, bold }: { label: string; value: string; bold?: boolean }) {
+  return (
+    <div className="flex items-baseline justify-between px-6 md:px-8 py-4 border-b border-white/[0.08] last:border-b-0">
+      <span className="text-fg-muted text-sm">{label}</span>
+      <span className={`font-mono ${bold ? "text-fg text-lg" : "text-fg/85"}`}>{value}</span>
+    </div>
   );
 }
