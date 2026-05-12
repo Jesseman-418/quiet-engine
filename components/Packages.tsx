@@ -20,7 +20,7 @@ const packages = [
   {
     name: "Full Stack",
     price: "$1,500",
-    period: "/mo + 60/40",
+    period: "/mo + 65/35",
     description:
       "Both services bundled. I build the product. I write every email that sells it. You compound monthly cash + product upside.",
     features: [
@@ -75,21 +75,21 @@ export default function Packages() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={`glass rounded-2xl p-8 transition-all duration-300 relative ${
+              className={`rounded-2xl p-8 transition-all duration-300 relative flex flex-col ${
                 pkg.highlight
-                  ? "border-brand-500/40 hover:border-brand-500/60 md:scale-105"
-                  : "glass-hover"
+                  ? "glass-strong md:-translate-y-3 md:scale-[1.04] z-10"
+                  : "glass glass-hover"
               }`}
             >
               {pkg.cta && (
                 <span
-                  className={`absolute -top-3 left-8 px-3 py-1 text-xs font-medium rounded-full ${
+                  className={`absolute -top-3 left-8 px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
                     pkg.highlight
-                      ? "bg-brand-500 text-white"
+                      ? "bg-brand-500 text-white shadow-lg shadow-brand-500/40"
                       : "bg-white/5 text-gray-400 border border-white/10"
                   }`}
                 >
@@ -97,29 +97,39 @@ export default function Packages() {
                 </span>
               )}
 
-              <h3 className="text-xl font-semibold text-gray-100 mb-2">
+              <h3
+                className={`text-xl font-bold mb-2 ${
+                  pkg.highlight ? "text-white" : "text-gray-100"
+                }`}
+              >
                 {pkg.name}
               </h3>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-3xl font-bold gradient-text">
+              <div className="flex items-baseline gap-1 mb-4 min-h-[3rem]">
+                <span
+                  className={`text-3xl font-bold ${
+                    pkg.highlight ? "text-white" : "gradient-text"
+                  }`}
+                >
                   {pkg.price}
                 </span>
                 {pkg.period && (
-                  <span className="text-gray-500 text-sm">{pkg.period}</span>
+                  <span className="text-gray-400 text-sm">{pkg.period}</span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+              <p className="text-sm text-gray-400 mb-6 leading-relaxed min-h-[5rem]">
                 {pkg.description}
               </p>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 flex-grow">
                 {pkg.features.map((f) => (
                   <li
                     key={f}
                     className="flex items-start gap-3 text-sm text-gray-300"
                   >
                     <svg
-                      className="w-5 h-5 text-brand-400 shrink-0 mt-0.5"
+                      className={`w-5 h-5 shrink-0 mt-0.5 ${
+                        pkg.highlight ? "text-brand-300" : "text-brand-400"
+                      }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -140,10 +150,10 @@ export default function Packages() {
                 href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block text-center px-6 py-3.5 rounded-xl font-medium transition-all ${
+                className={`block text-center px-6 py-3.5 rounded-xl font-semibold transition-all ${
                   pkg.highlight
-                    ? "bg-brand-500 hover:bg-brand-600 text-white hover:shadow-lg hover:shadow-brand-500/25"
-                    : "glass glass-hover text-gray-300"
+                    ? "bg-brand-500 hover:bg-brand-600 text-white hover:shadow-2xl hover:shadow-brand-500/40 hover:-translate-y-0.5"
+                    : "glass glass-hover text-gray-200"
                 }`}
               >
                 Book a Call

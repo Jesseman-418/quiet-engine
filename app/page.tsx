@@ -9,18 +9,26 @@ import SocialProof from "@/components/SocialProof";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import Divider from "@/components/Divider";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <Divider />
       <Problem />
+      <Divider />
       <Process />
+      <Divider />
       <WhatYouGet />
+      <Divider />
       <Packages />
+      <Divider />
       <Calculator />
+      <Divider />
       <SocialProof />
+      <Divider />
       <FAQ />
       <CTA />
       <Footer />

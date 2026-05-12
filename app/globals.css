@@ -9,6 +9,10 @@ html {
 body {
   background-color: #030712;
   color: #f9fafb;
+  background-image:
+    radial-gradient(rgba(16, 185, 129, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
 }
 
 @layer utilities {
@@ -24,11 +28,47 @@ body {
     border-color: rgba(16, 185, 129, 0.2);
   }
 
+  .glass-strong {
+    background: rgba(16, 185, 129, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    box-shadow:
+      0 0 0 1px rgba(16, 185, 129, 0.1),
+      0 20px 80px -20px rgba(16, 185, 129, 0.25);
+  }
+
   .gradient-text {
     background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .section-divider {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(16, 185, 129, 0.15) 20%,
+      rgba(16, 185, 129, 0.4) 50%,
+      rgba(16, 185, 129, 0.15) 80%,
+      transparent 100%
+    );
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
   }
 
   .gradient-border {
