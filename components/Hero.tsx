@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-brand-400 mb-8">
           <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse-slow" />
-          Founding partners only — 3 spots open
+          Quiet Engine — founding partners, 3 spots open
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">

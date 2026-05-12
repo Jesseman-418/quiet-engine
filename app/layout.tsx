@@ -5,10 +5,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Growth Operating | Product Build + Email Engine for Creators",
+  title: "Quiet Engine | Product Build + Email Engine for Creators",
   description:
     "I build the digital product. I write the emails that sell it. You stay the face. Three services — pure rev share, monthly retainer, or both bundled.",
   keywords: [
+    "quiet engine",
     "creator partnerships",
     "digital product launch",
     "revenue share",
@@ -21,16 +22,16 @@ export const metadata: Metadata = {
     "audience monetization",
   ],
   openGraph: {
-    title: "Growth Operating | Product Build + Email Engine for Creators",
+    title: "Quiet Engine | Product Build + Email Engine for Creators",
     description:
       "I build the digital product. I write the emails. You stay the face. Three services — rev share, retainer, or both.",
     type: "website",
     locale: "en_US",
-    siteName: "Growth Operating",
+    siteName: "Quiet Engine",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growth Operating | Product Build + Email Engine for Creators",
+    title: "Quiet Engine | Product Build + Email Engine for Creators",
     description:
       "I build the digital product. I write the emails. You stay the face.",
   },

@@ -12,7 +12,7 @@ const packages = [
       "14-day launch sequence scripted for IG stories",
       "DM + FAQ handling during launch",
       "Post-launch optimization",
-      "$0 upfront — 65/35 revenue split (you / me)",
+      "$0 upfront — 60/40 revenue split (you / me)",
     ],
     highlight: false,
     cta: "Zero Cash Risk",
@@ -27,7 +27,7 @@ const packages = [
       "Everything in Ghost Operating",
       "Everything in Email Engine",
       "Discounted retainer ($1,500/mo vs $2,000 standalone)",
-      "60/40 product revenue split (you keep 60%)",
+      "65/35 product revenue split (you keep 65% — better than Ghost Operating)",
       "Launch emails included in retainer — no extra fee",
       "Priority queue: your product + emails ship first",
       "12-month term, 30-day pause clause either side",
@@ -69,9 +69,9 @@ export default function Packages() {
             <span className="gradient-text">monetize your audience</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Pick the model that fits your cash flow + risk tolerance. Most
-            creators take Full Stack — the bundle solves the closed loop of
-            product + email engine that sells it.
+            Pick the model that fits your cash flow + risk tolerance. Full
+            Stack creators keep a higher rev split AND get the email engine
+            running between launches — that&apos;s why it&apos;s the default.
           </p>
         </div>
 

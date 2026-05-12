@@ -6,12 +6,12 @@ const faqs = [
   {
     question: "Which service should I pick?",
     answer:
-      "If you have audience and no product — Ghost Operating (zero cash risk, I take 35% of sales). If you have a product and weak email — Email Engine ($2K/mo, I write 12 emails). If you have neither dialed in — Full Stack ($1.5K/mo + 60/40 split). Most creators take Full Stack because the bundle solves the closed loop: product to sell + emails that sell it.",
+      "If you have audience and no product — Ghost Operating (zero cash risk, 60/40 split). If you have a product and weak email — Email Engine ($2K/mo, I write 12 emails). If you have neither dialed in — Full Stack ($1.5K/mo + 65/35 split — yes, you keep MORE than Ghost Operating). Most creators take Full Stack: better rev share, email engine running between launches, single point of contact.",
   },
   {
     question: "What does Ghost Operating actually cost?",
     answer:
-      "$0 upfront. No retainer. No setup fee. I take 35% of net product revenue (after payment processor + ad spend, before tax). My incentives are aligned with yours — I only make money when you make money. 12-month partnership term, 30-day pause clause either side.",
+      "$0 upfront. No retainer. No setup fee. I take 40% of net product revenue (after payment processor + ad spend, before tax). You keep 60%. My incentives are aligned with yours — I only make money when you make money. 12-month partnership term, 30-day pause clause either side.",
   },
   {
     question: "What kind of products do you build?",
@@ -29,9 +29,9 @@ const faqs = [
       "1 voice memo per week (15-20 min). You tell me what you want to push, who you spoke to recently, what's going on in your niche. I ship 12 emails a month from that — newsletter, sales sequences, launch emails, nurture flows. You approve before send. Voice-matched from your podcast / YouTube / IG so it sounds like you, not me.",
   },
   {
-    question: "Why is the Full Stack split 60/40 instead of 65/35?",
+    question: "Why is the Full Stack split BETTER than Ghost Operating?",
     answer:
-      "Because you're paying me a retainer to write your emails, which removes my cash risk. The retainer covers writing time. The 60/40 split is product upside on top. Net math: at moderate scale you make more under Full Stack than under Ghost Operating alone — and you get the email engine running between launches.",
+      "Because you're paying me a $1,500/mo retainer to write your emails, which covers my time and removes my cash risk. That lets me give you a better rev share (65/35 vs 60/40 on Ghost Operating). The math: at moderate scale you make significantly more under Full Stack — better split + the email engine running between launches. The retainer pays for itself inside one solid email send.",
   },
   {
     question: "What if a launch flops?",

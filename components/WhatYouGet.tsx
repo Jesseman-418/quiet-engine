@@ -48,7 +48,7 @@ export default function WhatYouGet() {
       ),
       title: "Aligned Incentives",
       description:
-        "On Ghost Operating: $0 upfront, I only earn when you earn. On Email Engine: monthly retainer covers writing time, you own the copy. On Full Stack: retainer + rev share — predictable cash for me, upside for you, motivation locked in.",
+        "Ghost Operating: $0 upfront, 60/40 split — I earn only when you earn. Email Engine: $2K/mo retainer, you own the copy. Full Stack: $1.5K retainer + 65/35 split (better than Ghost) — predictable cash for me, higher upside for you.",
     },
     {
       icon: (

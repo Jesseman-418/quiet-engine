@@ -4,10 +4,11 @@ import { useState } from "react";
 
 export default function Calculator() {
   const [followers, setFollowers] = useState(50000);
+  const [tier, setTier] = useState<"ghost" | "fullstack">("fullstack");
   const engagementRate = 0.03;
   const conversionRate = 0.03;
   const price = 497;
-  const creatorCut = 0.65;
+  const creatorCut = tier === "fullstack" ? 0.65 : 0.6;
 
   const engagedAudience = Math.round(followers * engagementRate);
   const buyers = Math.round(engagedAudience * conversionRate);
@@ -50,6 +51,33 @@ export default function Calculator() {
 
         {/* Calculator card */}
         <div className="glass rounded-3xl p-8 md:p-12">
+          {/* Tier toggle */}
+          <div className="mb-10">
+            <label className="text-sm text-gray-400 block mb-3">Service Tier</label>
+            <div className="grid grid-cols-2 gap-2 p-1 rounded-xl bg-white/[0.03] border border-white/5">
+              <button
+                onClick={() => setTier("ghost")}
+                className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
+                  tier === "ghost"
+                    ? "bg-brand-500/20 text-brand-300 border border-brand-500/30"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Ghost Operating (60%)
+              </button>
+              <button
+                onClick={() => setTier("fullstack")}
+                className={`py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${
+                  tier === "fullstack"
+                    ? "bg-brand-500/20 text-brand-300 border border-brand-500/30"
+                    : "text-gray-500 hover:text-gray-300"
+                }`}
+              >
+                Full Stack (65%)
+              </button>
+            </div>
+          </div>
+
           {/* Slider */}
           <div className="mb-12">
             <div className="flex justify-between items-center mb-4">
@@ -129,13 +157,18 @@ export default function Calculator() {
           {/* Your cut highlight */}
           <div className="relative rounded-2xl bg-gradient-to-r from-brand-500/10 to-brand-600/5 border border-brand-500/20 p-8 text-center">
             <div className="text-sm text-brand-400 font-medium mb-2">
-              Your Cut (65%)
+              Your Cut ({Math.round(creatorCut * 100)}%)
             </div>
             <div className="text-4xl md:text-5xl font-bold gradient-text">
               {formatCurrency(yourCut)}
             </div>
             <div className="text-sm text-gray-500 mt-2">
               From a single product launch
+              {tier === "fullstack" && (
+                <span className="block mt-1 text-xs text-brand-400/80">
+                  + Email Engine running between launches ($1,500/mo retainer)
+                </span>
+              )}
             </div>
           </div>
 

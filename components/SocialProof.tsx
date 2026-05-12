@@ -3,7 +3,7 @@ export default function SocialProof() {
     {
       title: "Best splits, locked",
       description:
-        "65/35 on Ghost Operating, 60/40 on Full Stack. These get worse once I have public case studies — founding partners keep them for the full 12-month term.",
+        "60/40 on Ghost Operating, 65/35 on Full Stack. These get tighter once I have public case studies — founding partners keep them for the full 12-month term.",
     },
     {
       title: "Direct access",
@@ -37,7 +37,7 @@ export default function SocialProof() {
               No case studies yet. Founding partners get the best terms.
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
-              Growth Operating is new. The first 3 creator partnerships are
+              Quiet Engine is new. The first 3 creator partnerships are
               currently in the build phase. I&apos;m not going to pretend
               otherwise &mdash; that&apos;s why founding partners get advantages
               I won&apos;t offer once we have public wins.
