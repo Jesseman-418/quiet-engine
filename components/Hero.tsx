@@ -7,20 +7,21 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-sm text-brand-400 mb-8">
           <span className="w-2 h-2 rounded-full bg-brand-400 animate-pulse-slow" />
-          Now accepting creator partnerships
+          Founding partners only — 3 spots open
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-          Turn Your Audience
+          I build the product.
           <br />
-          <span className="gradient-text">Into Revenue</span>
+          I write the emails.
+          <br />
+          <span className="gradient-text">You stay the face.</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          I partner with creators to build, launch, and sell digital products
-          &mdash; you bring the audience, I handle everything else.{" "}
+          Done-for-you product creation and email copy for creators with audience.{" "}
           <span className="text-gray-300 font-medium">
-            $0 upfront. Revenue share only.
+            Pure rev share, monthly retainer, or both.
           </span>
         </p>
 
@@ -43,16 +44,16 @@ export default function Hero() {
 
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto">
           <div>
-            <div className="text-2xl font-bold text-brand-400">$0</div>
-            <div className="text-xs text-gray-500 mt-1">Upfront Cost</div>
+            <div className="text-2xl font-bold text-brand-400">3</div>
+            <div className="text-xs text-gray-500 mt-1">Service Tiers</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-brand-400">4 Weeks</div>
             <div className="text-xs text-gray-500 mt-1">Build to Launch</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-brand-400">65%</div>
-            <div className="text-xs text-gray-500 mt-1">Your Revenue</div>
+            <div className="text-2xl font-bold text-brand-400">1 hr/wk</div>
+            <div className="text-xs text-gray-500 mt-1">Your Time</div>
           </div>
         </div>
       </div>

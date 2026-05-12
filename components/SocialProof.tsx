@@ -1,24 +1,24 @@
 export default function SocialProof() {
   const perks = [
     {
-      title: "Best Revenue Split",
+      title: "Best splits, locked",
       description:
-        "Early partners lock in the most favorable terms — 65% to you, guaranteed.",
+        "65/35 on Ghost Operating, 60/40 on Full Stack. These get worse once I have public case studies — founding partners keep them for the full 12-month term.",
     },
     {
-      title: "Priority Attention",
+      title: "Direct access",
       description:
-        "Fewer clients means more of my time dedicated to your launch and success.",
+        "Working with 3 partners max while building. You get me on Slack/WhatsApp, not a project manager. Replies inside 24 hours.",
     },
     {
-      title: "Founding Partner Status",
+      title: "First in line",
       description:
-        "First-in-line for re-launches, new products, and scaling opportunities.",
+        "Re-launches, new product tiers, evergreen funnels — you skip the queue. Founding partners get priority capacity ahead of new sign-ups.",
     },
     {
-      title: "Case Study Collaboration",
+      title: "Document the win together",
       description:
-        "We document the win together — social proof that benefits both of us.",
+        "We co-publish the case study when your launch lands. You get backlinks + authority signal. I get social proof. Both win.",
     },
   ];
 
@@ -34,15 +34,16 @@ export default function SocialProof() {
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              I&apos;m Building This From the Ground Up
+              No case studies yet. Founding partners get the best terms.
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto mb-4 leading-relaxed">
-              Growth Operating is new, and I&apos;m being upfront about it. My
-              first creator partnerships are currently in the build phase.
+              Growth Operating is new. The first 3 creator partnerships are
+              currently in the build phase. I&apos;m not going to pretend
+              otherwise &mdash; that&apos;s why founding partners get advantages
+              I won&apos;t offer once we have public wins.
             </p>
             <p className="text-gray-500 text-sm max-w-lg mx-auto mb-10">
-              That means early partners get advantages you won&apos;t find
-              anywhere else:
+              What that means for you, right now:
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 text-left">

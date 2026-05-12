@@ -15,7 +15,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "How It Works", href: "#process" },
     { label: "Services", href: "#packages" },
-    { label: "Calculator", href: "#calculator" },
+    { label: "Math", href: "#calculator" },
     { label: "FAQ", href: "#faq" },
   ];
 

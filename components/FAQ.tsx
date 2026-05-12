@@ -4,44 +4,54 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What does it cost?",
+    question: "Which service should I pick?",
     answer:
-      "$0 upfront. No retainer, no monthly fee, no hidden costs. This is a revenue share partnership — I only make money when you make money. My cut comes from a percentage of the product sales, so my incentives are completely aligned with yours.",
+      "If you have audience and no product — Ghost Operating (zero cash risk, I take 35% of sales). If you have a product and weak email — Email Engine ($2K/mo, I write 12 emails). If you have neither dialed in — Full Stack ($1.5K/mo + 60/40 split). Most creators take Full Stack because the bundle solves the closed loop: product to sell + emails that sell it.",
   },
   {
-    question: "What kind of product will we build?",
+    question: "What does Ghost Operating actually cost?",
     answer:
-      "It depends on your audience and expertise. Common products include online courses, coaching programs, community memberships, template packs, and digital toolkits. During our strategy call, I'll analyze your content and audience to recommend the best product type and price point for maximum revenue.",
+      "$0 upfront. No retainer. No setup fee. I take 35% of net product revenue (after payment processor + ad spend, before tax). My incentives are aligned with yours — I only make money when you make money. 12-month partnership term, 30-day pause clause either side.",
   },
   {
-    question: "How long does it take?",
+    question: "What kind of products do you build?",
     answer:
-      "Typically 2-3 weeks to build the product and all the launch assets, then 2 weeks for the launch itself. So roughly 4-5 weeks from our first call to money in your account. I move fast because I use AI-powered workflows to handle the heavy lifting.",
+      "Whatever your audience will pay for. Most common: 4-8 week cohort programs ($300-$1,500), digital protocol PDFs ($29-$99), templates / toolkits ($49-$199), community memberships ($29-$99/mo). On the strategy call I run the audience math live and tell you which product type your numbers actually support.",
   },
   {
-    question: "What if it doesn't sell?",
+    question: "How long does Ghost Operating take?",
     answer:
-      "You risk nothing. If the launch doesn't generate sales, I've worked for free. That's why I'm selective about who I partner with — I only take on creators where I'm confident the math works. I do my homework on your audience, engagement, and niche before committing.",
+      "2-3 weeks to build the product + launch assets. 2 weeks for the launch itself. Roughly 4-5 weeks from first call to first sale. I move fast because I use AI-powered workflows on the production side while you stay focused on the face/voice work.",
   },
   {
-    question: "What's the revenue split?",
+    question: "What do I actually do with Email Engine?",
     answer:
-      "Typically 65% to you, 35% to me. This can vary slightly depending on the scope of work and how much ongoing support you need post-launch. We agree on the split before starting, and it's locked in with a partnership agreement. No surprises.",
+      "1 voice memo per week (15-20 min). You tell me what you want to push, who you spoke to recently, what's going on in your niche. I ship 12 emails a month from that — newsletter, sales sequences, launch emails, nurture flows. You approve before send. Voice-matched from your podcast / YouTube / IG so it sounds like you, not me.",
   },
   {
-    question: "How much work do I need to do?",
+    question: "Why is the Full Stack split 60/40 instead of 65/35?",
     answer:
-      "Minimal. Your main job is showing up for a strategy call, reviewing what I build, and posting the launch content I script for you. I handle the product creation, tech setup, sales copy, and launch strategy. Think of me as your behind-the-scenes product team.",
+      "Because you're paying me a retainer to write your emails, which removes my cash risk. The retainer covers writing time. The 60/40 split is product upside on top. Net math: at moderate scale you make more under Full Stack than under Ghost Operating alone — and you get the email engine running between launches.",
   },
   {
-    question: "What if I already tried launching something and it failed?",
+    question: "What if a launch flops?",
     answer:
-      "That's more common than you'd think, and it doesn't mean your audience won't buy. Most failed launches come down to wrong product, wrong positioning, or wrong launch strategy — not a bad audience. I'll analyze what went wrong and build something your audience actually wants.",
+      "On Ghost Operating: I worked for free. On Email Engine: you still got 12 emails written that month, retainer paid as agreed. On Full Stack: same — retainer paid, rev share is $0 that launch. That's why I'm selective about who I partner with. If the audience + niche math doesn't pencil out on the strategy call, I'll tell you straight and we don't sign.",
   },
   {
     question: "How do I know you're legit?",
     answer:
-      "Fair question. Here's why the model itself protects you: I take zero money upfront. If I can't deliver results, I work for free. There's no scenario where you lose. I'm also happy to share my process, walk you through the entire plan before we start, and answer any questions on our call.",
+      "I'm building this from the ground up — founding partners get the best terms. I take zero money upfront on Ghost Operating. On the retainer services there's a 3-month minimum then month-to-month. There's no scenario where you lose more than 3 months of retainer if the work isn't landing. I'll walk you through the entire plan + revenue math on the strategy call before we sign anything.",
+  },
+  {
+    question: "What audience size do I need?",
+    answer:
+      "Ghost Operating: 10K+ engaged followers (any platform — IG, YouTube, LinkedIn, Newsletter). Below that, the math rarely pencils. Email Engine: any list size, but ROI compounds above 2K subscribers. Full Stack: 10K+ audience AND ~1K+ existing email list (or willingness to build one).",
+  },
+  {
+    question: "How much of my time does this take?",
+    answer:
+      "Ghost Operating: 1-2 hours total during the build, then ~1 hour during launch week. Email Engine: 15-20 min/week voice memo. Full Stack: ~1 hour/week. You stay the face. I stay invisible.",
   },
 ];
 
@@ -83,7 +93,7 @@ function FAQItem({
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-96 pb-6" : "max-h-0"
+          isOpen ? "max-h-[600px] pb-6" : "max-h-0"
         }`}
       >
         <p className="text-gray-400 leading-relaxed">{answer}</p>
@@ -98,7 +108,6 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        {/* Section header */}
         <div className="text-center mb-16">
           <p className="text-brand-400 text-sm font-medium tracking-wider uppercase mb-4">
             FAQ
@@ -110,7 +119,6 @@ export default function FAQ() {
           </h2>
         </div>
 
-        {/* Accordion */}
         <div className="glass rounded-2xl px-8">
           {faqs.map((faq, i) => (
             <FAQItem

@@ -1,66 +1,87 @@
 const packages = [
   {
-    name: "Launch Partner",
-    price: "Revenue Share",
+    name: "Ghost Operating",
+    price: "Rev Share",
     period: "",
     description:
-      "I build and launch a digital product from your existing content. You post stories. We split revenue.",
+      "I build a digital product on your existing content and audience. You stay the face. We split sales.",
     features: [
-      "Full product creation from your content (course, program, or community)",
+      "Full product build (course, cohort, membership, or template pack)",
       "Sales page copywriting + design",
-      "14-day Instagram story launch sequence scripted for you",
-      "Email sequence for your existing list",
-      "DM automation + FAQ handling",
-      "Post-launch optimization and scaling",
-      "$0 upfront — we split revenue (65% you / 35% me)",
-    ],
-    highlight: true,
-    cta: "Zero Risk",
-  },
-  {
-    name: "Content Engine",
-    price: "$2,000",
-    period: "/month",
-    description:
-      "Your podcast and long-form content, turned into a daily social media machine.",
-    features: [
-      "3-4 Instagram carousels per week from your existing episodes",
-      "Weekly newsletter draft from episode highlights",
-      "Social media captions + hooks optimized for engagement",
-      "Content calendar with posting schedule",
-      "Monthly performance review + strategy adjustments",
+      "Checkout + delivery tech setup",
+      "14-day launch sequence scripted for IG stories",
+      "DM + FAQ handling during launch",
+      "Post-launch optimization",
+      "$0 upfront — 65/35 revenue split (you / me)",
     ],
     highlight: false,
-    cta: "Predictable Growth",
+    cta: "Zero Cash Risk",
+  },
+  {
+    name: "Full Stack",
+    price: "$1,500",
+    period: "/mo + 60/40",
+    description:
+      "Both services bundled. I build the product. I write every email that sells it. You compound monthly cash + product upside.",
+    features: [
+      "Everything in Ghost Operating",
+      "Everything in Email Engine",
+      "Discounted retainer ($1,500/mo vs $2,000 standalone)",
+      "60/40 product revenue split (you keep 60%)",
+      "Launch emails included in retainer — no extra fee",
+      "Priority queue: your product + emails ship first",
+      "12-month term, 30-day pause clause either side",
+    ],
+    highlight: true,
+    cta: "Recommended",
+  },
+  {
+    name: "Email Engine",
+    price: "$2,000",
+    period: "/mo",
+    description:
+      "I write your sales emails, launch sequences, and newsletter on a monthly retainer. You give voice memos. I ship.",
+    features: [
+      "12 emails / month (newsletter, sales, launch, nurture)",
+      "Hook + subject line testing per send",
+      "Voice-matched from your podcast / YouTube / Instagram",
+      "Audience segmentation strategy",
+      "Monthly performance review (open rates, CTR, revenue)",
+      "ESP setup if you don't have one (Beehiiv, ConvertKit, etc.)",
+      "3-month minimum, then month-to-month",
+    ],
+    highlight: false,
+    cta: "Predictable Cash",
   },
 ];
 
 export default function Packages() {
   return (
     <section id="packages" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-brand-400 text-sm font-medium tracking-wider uppercase mb-4">
             Services
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Two ways to
+            Three ways to
             <br />
-            <span className="gradient-text">grow your revenue</span>
+            <span className="gradient-text">monetize your audience</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Pick what fits your goals. Both are designed to turn your content
-            into money without adding to your workload.
+            Pick the model that fits your cash flow + risk tolerance. Most
+            creators take Full Stack — the bundle solves the closed loop of
+            product + email engine that sells it.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
               className={`glass rounded-2xl p-8 transition-all duration-300 relative ${
                 pkg.highlight
-                  ? "border-brand-500/30 hover:border-brand-500/50"
+                  ? "border-brand-500/40 hover:border-brand-500/60 md:scale-105"
                   : "glass-hover"
               }`}
             >
@@ -84,7 +105,7 @@ export default function Packages() {
                   {pkg.price}
                 </span>
                 {pkg.period && (
-                  <span className="text-gray-500">{pkg.period}</span>
+                  <span className="text-gray-500 text-sm">{pkg.period}</span>
                 )}
               </div>
               <p className="text-sm text-gray-400 mb-6 leading-relaxed">
@@ -125,11 +146,16 @@ export default function Packages() {
                     : "glass glass-hover text-gray-300"
                 }`}
               >
-                Book a Free Strategy Call
+                Book a Call
               </a>
             </div>
           ))}
         </div>
+
+        <p className="text-center text-sm text-gray-500 mt-12 max-w-2xl mx-auto">
+          Not sure which? Book a call. I&apos;ll do the math on your audience
+          + content stack and tell you straight which model fits.
+        </p>
       </div>
     </section>
   );

@@ -5,32 +5,34 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Growth Operating | Turn Your Audience Into Revenue",
+  title: "Growth Operating | Product Build + Email Engine for Creators",
   description:
-    "I partner with creators to build, launch, and sell digital products. You bring the audience, I handle everything else. $0 upfront — revenue share only.",
+    "I build the digital product. I write the emails that sell it. You stay the face. Three services — pure rev share, monthly retainer, or both bundled.",
   keywords: [
     "creator partnerships",
     "digital product launch",
     "revenue share",
+    "email copywriting retainer",
+    "creator agency",
+    "ghostwriting for creators",
     "course creation",
-    "instagram monetization",
+    "newsletter monetization",
     "creator economy",
-    "digital products",
     "audience monetization",
   ],
   openGraph: {
-    title: "Growth Operating | Turn Your Audience Into Revenue",
+    title: "Growth Operating | Product Build + Email Engine for Creators",
     description:
-      "I partner with creators to build, launch, and sell digital products. $0 upfront — revenue share only.",
+      "I build the digital product. I write the emails. You stay the face. Three services — rev share, retainer, or both.",
     type: "website",
     locale: "en_US",
     siteName: "Growth Operating",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Growth Operating | Turn Your Audience Into Revenue",
+    title: "Growth Operating | Product Build + Email Engine for Creators",
     description:
-      "I partner with creators to build, launch, and sell digital products. $0 upfront — revenue share only.",
+      "I build the digital product. I write the emails. You stay the face.",
   },
   robots: {
     index: true,

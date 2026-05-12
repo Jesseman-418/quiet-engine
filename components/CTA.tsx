@@ -8,14 +8,15 @@ export default function CTA() {
 
           <div className="relative glass rounded-3xl p-12 md:p-16 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Ready to turn your audience
+              3 founding-partner spots.
               <br />
-              <span className="gradient-text">into income?</span>
+              <span className="gradient-text">15 minutes to claim one.</span>
             </h2>
             <p className="text-gray-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-              Book a free 15-minute strategy call. I&apos;ll analyze your
-              audience, suggest the best product opportunity, and show you the
-              revenue math &mdash; no strings attached.
+              Book a free 15-min strategy call. I&apos;ll run the audience math
+              live, tell you which of the 3 services fits your stack, and show
+              you the revenue floor. No pitch deck. No follow-up sequence.
+              Yes or no by the end of the call.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
