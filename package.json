@@ -1,5 +1,5 @@
 {
-  "name": "growth-site",
+  "name": "listing-engine-site",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.38.0",
+    "geist": "^1.7.0",
     "next": "14.2.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

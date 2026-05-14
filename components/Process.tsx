@@ -1,60 +1,100 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 const steps = [
   {
-    n: "01",
-    title: "Strategy call",
-    body: "30 min. We map your audience, your expertise, and the best product opportunity. You get the math live — what we&apos;d build, how we&apos;d launch, the revenue floor.",
+    n: "Day 1–2",
+    title: "Discovery + voice training",
+    body: "60-min call. We map your CRM, your pipeline, your tone. AI trains on your last 50 closed conversations so the drafts sound like you, not us.",
   },
   {
-    n: "02",
-    title: "We build it",
-    body: "Two to three weeks. Product + sales page + checkout + email sequences + tech setup. You give one hour a week of voice memos. We ship.",
+    n: "Day 3–6",
+    title: "Build + connect",
+    body: "We wire your CRM (Follow Up Boss, Lofty, Chime, kvCORE, Sierra, BoldTrail) into the engine. n8n self-hosted on free infrastructure. Your Claude API key. Your data never leaves your account.",
   },
   {
-    n: "03",
-    title: "We launch together",
-    body: "Fourteen-day Instagram story launch + email sequence. You post what we script. We handle DMs, FAQs, optimization. Then we re-launch.",
+    n: "Day 7",
+    title: "Live install + handoff",
+    body: "First batch runs on your real dormant leads. You review the drafts. You hit send. You own the system. We&rsquo;re on Slack for 30 days of tune-ups.",
   },
 ];
 
 export default function Process() {
   return (
-    <section className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-28">
-          <div className="md:col-span-2">
-            <span className="marker">03 — Process</span>
-          </div>
-          <div className="md:col-span-8">
-            <h2 className="display text-4xl md:text-6xl leading-[0.95] mb-6">
-              Three steps from audience{" "}
-              <span className="italic text-fg-muted">to income</span>.
-            </h2>
-            <p className="text-lg text-fg-muted max-w-xl">
-              You focus on what you do best. We handle the rest.
-            </p>
-          </div>
+    <section
+      id="how"
+      className="relative section-pad px-6 lg:px-10 border-t border-fg/[0.06] bg-ink-800/40 overflow-hidden"
+    >
+      <div className="absolute inset-0 dotgrid opacity-50 pointer-events-none" />
+
+      <div className="relative max-w-[1280px] mx-auto">
+        <div className="mb-20 lg:mb-28">
+          <div className="eyebrow mb-6">003 — How it ships</div>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="display text-[clamp(2.5rem,6vw,5.2rem)] leading-[0.9] max-w-[900px]"
+          >
+            Seven days.{" "}
+            <span className="serif-italic text-gold">From cold</span> to
+            cash-flowing.
+          </motion.h2>
         </div>
 
-        <ol className="space-y-0">
-          {steps.map((s) => (
-            <li
-              key={s.n}
-              className="grid md:grid-cols-12 gap-6 md:gap-10 py-12 md:py-14 border-t border-white/[0.08] last:border-b last:border-white/[0.08]"
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-fg/[0.08] border border-fg/[0.08] rounded-2xl overflow-hidden">
+          {steps.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.95,
+                delay: i * 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="relative bg-ink p-10 lg:p-14 flex flex-col gap-7 min-h-[400px]"
             >
-              <div className="md:col-span-2">
-                <span className="marker">{s.n}</span>
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[11px] tracking-[0.22em] text-gold uppercase">
+                  {s.n}
+                </span>
+                <span className="font-mono text-[10px] text-fg/30 tracking-[0.18em]">
+                  0{i + 1} / 03
+                </span>
               </div>
-              <div className="md:col-span-4">
-                <h3 className="display text-2xl md:text-3xl">{s.title}</h3>
-              </div>
-              <div className="md:col-span-6">
-                <p className="text-fg-muted leading-relaxed max-w-prose">
-                  {s.body}
-                </p>
-              </div>
-            </li>
+
+              <h3
+                className="display-tight text-[clamp(1.5rem,2.1vw,2rem)] leading-[1.05] text-fg"
+                dangerouslySetInnerHTML={{ __html: s.title }}
+              />
+
+              <div className="rule-strong w-full" />
+
+              <p
+                className="text-fg-muted text-[15px] leading-[1.65] tracking-[-0.01em] flex-1"
+                dangerouslySetInnerHTML={{ __html: s.body }}
+              />
+            </motion.div>
           ))}
-        </ol>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+          className="mt-16 lg:mt-20 flex items-center justify-center gap-4 text-fg-muted text-[14px]"
+        >
+          <span className="w-16 h-px bg-gold/40" />
+          <span className="eyebrow-muted">
+            Day 30: 30-day refund window closes
+          </span>
+          <span className="w-16 h-px bg-gold/40" />
+        </motion.div>
       </div>
     </section>
   );

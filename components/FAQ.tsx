@@ -1,109 +1,125 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
-    q: "Which service should I pick?",
-    a: "If you have audience and no product — Ghost Operating (zero cash risk, 60/40 split). If you have a product and weak email — Email Engine ($2K/mo, 12 emails). If you have neither dialed in — Full Stack ($1.5K/mo + 65/35 split — you keep more than Ghost Operating). Most creators take Full Stack: better rev share, email engine running between launches, single point of contact.",
+    q: "What CRMs do you support?",
+    a: "Follow Up Boss, Lofty, Chime, kvCORE, Sierra Interactive, and BoldTrail out of the box. Anything with an API can be wired in (+$500 to install).",
   },
   {
-    q: "What does Ghost Operating actually cost?",
-    a: "$0 upfront. No retainer. No setup fee. I take 40% of net product revenue (after payment processor + ad spend, before tax). You keep 60%. My incentives are aligned with yours — I only make money when you make money. 12-month partnership term, 30-day pause clause either side.",
+    q: "Do you use my data to train your AI?",
+    a: "No. Your data stays in your Google Workspace, your CRM, and your Claude API account. We run on n8n self-hosted infrastructure. Nothing routes through us.",
   },
   {
-    q: "What kind of products do you build?",
-    a: "Whatever your audience will pay for. Most common: 4-8 week cohort programs ($300-$1,500), digital protocol PDFs ($29-$99), templates / toolkits ($49-$199), community memberships ($29-$99/mo). On the strategy call I run the audience math live and tell you which product type your numbers actually support.",
+    q: "How does the refund clause work?",
+    a: "If the Lead Resurrector module doesn't generate 5 active conversations from your dormant leads in 30 days, you get every dollar back. No questions, no clauses, no friction.",
   },
   {
-    q: "How long does Ghost Operating take?",
-    a: "2-3 weeks to build the product + launch assets. 2 weeks for the launch itself. Roughly 4-5 weeks from first call to first sale. I move fast because I use AI-powered workflows on the production side while you stay focused on the face/voice work.",
+    q: "Will the emails sound like me?",
+    a: "We train the voice model on your last 50 closed conversations before write a single draft. Most agents say the output sounds more like them than their own drafts do.",
   },
   {
-    q: "What do I actually do with Email Engine?",
-    a: "One voice memo per week (15–20 min). You tell me what you want to push, who you spoke to recently, what's going on in your niche. I ship 12 emails a month from that — newsletter, sales sequences, launch emails, nurture flows. You approve before send. Voice-matched from your podcast / YouTube / IG so it sounds like you, not me.",
+    q: "Do I own the system after install?",
+    a: "Completely. The n8n flows, the prompts, the integrations — all in your accounts. The monthly retainer covers tune-ups and API monitoring. Cancel and the engine keeps running.",
   },
   {
-    q: "Why is the Full Stack split better than Ghost Operating?",
-    a: "Because you're paying me a $1,500/mo retainer to write your emails, which covers my time and removes my cash risk. That lets me give you a better rev share (65/35 vs 60/40 on Ghost Operating). The math: at moderate scale you make significantly more under Full Stack — better split + the email engine running between launches. The retainer pays for itself inside one solid email send.",
+    q: "Will my MLS or brokerage flag this?",
+    a: "No. We don't scrape MLS or violate any data agreements. Re-engagement of existing leads in your own CRM is something every agent already does manually — we just make it scale.",
   },
   {
-    q: "What if a launch flops?",
-    a: "On Ghost Operating: I worked for free. On Email Engine: you still got 12 emails written that month, retainer paid as agreed. On Full Stack: same — retainer paid, rev share is $0 that launch. That's why I'm selective about who I partner with. If the audience + niche math doesn't pencil out on the strategy call, I'll tell you straight and we don't sign.",
-  },
-  {
-    q: "How do I know you're legit?",
-    a: "I'm building this from the ground up — founding partners get the best terms. I take zero money upfront on Ghost Operating. On the retainer services there's a 3-month minimum then month-to-month. There's no scenario where you lose more than 3 months of retainer if the work isn't landing. I'll walk you through the entire plan + revenue math on the strategy call before we sign anything.",
-  },
-  {
-    q: "What audience size do I need?",
-    a: "Ghost Operating: 10K+ engaged followers (any platform — IG, YouTube, LinkedIn, Newsletter). Below that, the math rarely pencils. Email Engine: any list size, but ROI compounds above 2K subscribers. Full Stack: 10K+ audience AND ~1K+ existing email list (or willingness to build one).",
-  },
-  {
-    q: "How much of my time does this take?",
-    a: "Ghost Operating: 1-2 hours total during the build, then ~1 hour during launch week. Email Engine: 15-20 min/week voice memo. Full Stack: ~1 hour/week. You stay the face. I stay invisible.",
+    q: "How fast until I see results?",
+    a: "First conversations resurface within 7 days of go-live. First closing usually lands inside 60 days. The exact number depends on how cold your dormant pipeline actually is.",
   },
 ];
 
-function Item({ q, a, open, onClick }: { q: string; a: string; open: boolean; onClick: () => void }) {
-  return (
-    <li className="border-b border-white/[0.08] last:border-b-0">
-      <button
-        onClick={onClick}
-        className="w-full py-7 flex items-center justify-between text-left group"
-      >
-        <span className="display text-xl md:text-2xl text-fg group-hover:text-brand transition-colors pr-8">
-          {q}
-        </span>
-        <span
-          className={`text-fg-muted shrink-0 transition-transform ${open ? "rotate-45 text-brand" : ""}`}
-        >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 1V17M1 9H17" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-          </svg>
-        </span>
-      </button>
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[500px] pb-7" : "max-h-0"
-        }`}
-      >
-        <p className="text-fg-muted leading-relaxed max-w-3xl">{a}</p>
-      </div>
-    </li>
-  );
-}
-
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section id="faq" className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-16 md:mb-20">
-          <div className="md:col-span-2">
-            <span className="marker">07 — Questions</span>
-          </div>
-          <div className="md:col-span-8">
-            <h2 className="display text-4xl md:text-6xl leading-[0.95]">
-              Things you probably{" "}
-              <span className="italic text-fg-muted">want to know</span>.
-            </h2>
-          </div>
-        </div>
 
-        <div className="grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-2"></div>
-          <ul className="md:col-span-10 border-t border-white/[0.08]">
-            {faqs.map((f, i) => (
-              <Item
-                key={i}
-                q={f.q}
-                a={f.a}
-                open={open === i}
-                onClick={() => setOpen(open === i ? null : i)}
-              />
-            ))}
-          </ul>
+  return (
+    <section
+      id="faq"
+      className="relative section-pad px-6 lg:px-10 border-t border-fg/[0.06]"
+    >
+      <div className="max-w-[1280px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-14">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <div className="eyebrow mb-6">005 — Common questions</div>
+              <h2 className="display text-[clamp(2.2rem,4.5vw,3.8rem)] leading-[0.95] mb-8">
+                Skeptical?{" "}
+                <span className="serif-italic text-gold">Good.</span>
+              </h2>
+              <p className="text-fg-muted text-[15.5px] leading-[1.65] tracking-[-0.01em] max-w-[340px]">
+                The agents who close best on this also push back hardest.
+                Here&apos;s what they ask before the call.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-8">
+            <div className="border-t border-fg/[0.1]">
+              {faqs.map((f, i) => {
+                const isOpen = open === i;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{
+                      duration: 0.6,
+                      delay: i * 0.04,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="border-b border-fg/[0.1] group"
+                  >
+                    <button
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between py-7 lg:py-8 text-left"
+                    >
+                      <span
+                        className={`text-[18px] lg:text-[20px] tracking-[-0.02em] leading-[1.3] transition-colors ${
+                          isOpen ? "text-fg" : "text-fg/90 group-hover:text-fg"
+                        }`}
+                      >
+                        {f.q}
+                      </span>
+                      <span
+                        className={`flex-shrink-0 ml-6 w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-500 ${
+                          isOpen
+                            ? "bg-gold border-gold rotate-45"
+                            : "border-fg/20 group-hover:border-gold"
+                        }`}
+                      >
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                          <path
+                            d="M5.5 1v9M1 5.5h9"
+                            stroke={isOpen ? "#08070a" : "currentColor"}
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                    <div
+                      className="grid transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                      style={{
+                        gridTemplateRows: isOpen ? "1fr" : "0fr",
+                      }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-fg-muted text-[15.5px] leading-[1.7] tracking-[-0.01em] pb-8 pr-12 max-w-[680px]">
+                          {f.a}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

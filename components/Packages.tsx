@@ -1,146 +1,234 @@
-const packages = [
+"use client";
+
+import { motion } from "framer-motion";
+
+const tiers = [
   {
-    name: "Ghost Operating",
-    price: "Rev share",
-    sub: "60/40 you / me",
-    upfront: "$0 upfront",
-    description:
-      "I build a digital product on your existing audience. You stay the face. We split sales.",
-    features: [
-      "Full product build (course, cohort, membership, or template pack)",
-      "Sales page copywriting + design",
-      "Checkout + delivery tech setup",
-      "14-day launch sequence scripted for IG stories",
-      "DM + FAQ handling during launch",
-      "Post-launch optimization",
-      "12-month term · 30-day pause clause",
-    ],
-    highlight: false,
-    label: "Zero cash risk",
-  },
-  {
-    name: "Full Stack",
+    badge: "Launch pricing",
+    name: "Pilot",
     price: "$1,500",
-    sub: "/mo + 65/35 rev share",
-    upfront: "Discounted retainer",
+    cadence: "one-time",
+    sub: "First 5 clients only. Then $2,500.",
     description:
-      "Both services bundled. I build the product. I write every email that sells it.",
-    features: [
-      "Everything in Ghost Operating",
-      "Everything in Email Engine",
-      "65/35 product split — better than Ghost Operating",
-      "Discounted retainer ($1,500/mo vs $2,000 standalone)",
-      "Launch emails included — no extra fee",
-      "Priority queue: your product + emails ship first",
-      "12-month term · 30-day pause clause",
+      "The Lead Resurrector module. Installed in 7 days. Refund if it doesn't resurrect 5 conversations in 30 days.",
+    bullets: [
+      "Lead Resurrector module only",
+      "7-day install",
+      "30-day refund clause",
+      "Slack support window",
     ],
-    highlight: true,
-    label: "Recommended",
+    cta: "Reserve a pilot",
+    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    accent: false,
   },
   {
-    name: "Email Engine",
-    price: "$2,000",
-    sub: "/mo retainer",
-    upfront: "3-month minimum",
+    badge: "Most chosen",
+    name: "Full Engine",
+    price: "$4,500",
+    cadence: "+ $1,200/mo",
+    sub: "All six modules.",
     description:
-      "I write your sales emails, launch sequences, and newsletter. You give voice memos. I ship.",
-    features: [
-      "12 emails / month (newsletter, sales, launch, nurture)",
-      "Hook + subject line testing per send",
-      "Voice-matched from your podcast / YouTube / IG",
-      "Audience segmentation strategy",
-      "Monthly performance review (open rate, CTR, revenue)",
-      "ESP setup (Beehiiv, ConvertKit, etc.)",
-      "3-month minimum, then month-to-month",
+      "The complete installation. 14-day build. Monthly retune for prompt drift, new CRM fields, and seasonal patterns.",
+    bullets: [
+      "All 6 modules installed",
+      "14-day install",
+      "Monthly retune included",
+      "Priority Slack",
+      "You own the system",
     ],
-    highlight: false,
-    label: "Predictable cash",
+    cta: "Book a demo",
+    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    accent: true,
+  },
+  {
+    badge: "Save $2,400",
+    name: "Annual",
+    price: "$4,500",
+    cadence: "+ $12,000/yr",
+    sub: "Full engine, paid annually.",
+    description:
+      "Everything in Full Engine, plus quarterly deep-retune and a direct line for emergency tweaks.",
+    bullets: [
+      "All 6 modules",
+      "Quarterly deep-retune",
+      "Priority Slack",
+      "Direct emergency line",
+      "$2,400 saved vs monthly",
+    ],
+    cta: "Talk to Jesseman",
+    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    accent: false,
   },
 ];
 
 export default function Packages() {
   return (
-    <section id="services" className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-28">
-          <div className="md:col-span-2">
-            <span className="marker">04 — Services</span>
-          </div>
-          <div className="md:col-span-8">
-            <h2 className="display text-4xl md:text-6xl leading-[0.95] mb-6">
-              Three ways to{" "}
-              <span className="italic text-fg-muted">monetize</span>.
-            </h2>
-            <p className="text-lg text-fg-muted max-w-xl">
-              Pick the model that fits your cash flow and risk tolerance. Most
-              creators choose Full Stack — the bundle solves the closed loop of
-              product + engine.
-            </p>
-          </div>
+    <section
+      id="pricing"
+      className="relative section-pad px-6 lg:px-10 border-t border-fg/[0.06] overflow-hidden"
+    >
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] aurora pointer-events-none opacity-50" />
+
+      <div className="relative max-w-[1280px] mx-auto">
+        <div className="text-center mb-16 lg:mb-24">
+          <div className="eyebrow mb-6">004 — Pricing</div>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="display text-[clamp(2.5rem,6vw,5.2rem)] leading-[0.92] max-w-[900px] mx-auto"
+          >
+            One closing pays for{" "}
+            <span className="serif-italic text-gold">the whole year</span>.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              duration: 1,
+              delay: 0.15,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="mt-8 text-fg-muted text-[16px] max-w-[520px] mx-auto leading-[1.6]"
+          >
+            $9K avg commission × 1 extra closing = 6× ROI on annual. The math
+            doesn&apos;t need a spreadsheet.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-white/[0.08] border border-white/[0.08]">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className={`bg-ink p-8 md:p-10 flex flex-col ${
-                pkg.highlight ? "md:-mt-4 md:-mb-4 bg-ink-800 ring-1 ring-brand/30" : ""
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          {tiers.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.95,
+                delay: i * 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`relative rounded-3xl p-9 lg:p-11 flex flex-col min-h-[600px] ${
+                t.accent
+                  ? "bg-bone text-ink gold-glow"
+                  : "bg-ink-800/80 border border-fg/[0.08] text-fg"
               }`}
             >
-              <div className="mb-8">
-                <div className="flex items-baseline justify-between mb-4">
-                  <h3 className="display text-2xl">{pkg.name}</h3>
-                  {pkg.label && (
-                    <span
-                      className={`text-[10px] uppercase tracking-[0.18em] font-medium ${
-                        pkg.highlight ? "text-brand" : "text-fg-subtle"
-                      }`}
-                    >
-                      {pkg.label}
-                    </span>
-                  )}
-                </div>
-
-                <div className="flex items-baseline gap-2 mb-1">
-                  <span className="display text-4xl md:text-5xl">{pkg.price}</span>
-                  <span className="text-fg-muted text-sm">{pkg.sub}</span>
-                </div>
-                <div className="text-xs text-fg-subtle font-mono uppercase tracking-wider">
-                  {pkg.upfront}
-                </div>
+              <div className="flex items-center justify-between mb-10">
+                <span
+                  className={`font-mono text-[10px] tracking-[0.22em] uppercase ${
+                    t.accent ? "text-ink/60" : "text-gold"
+                  }`}
+                >
+                  {t.badge}
+                </span>
+                <span
+                  className={`font-mono text-[10px] tracking-[0.18em] ${
+                    t.accent ? "text-ink/40" : "text-fg/40"
+                  }`}
+                >
+                  0{i + 1}/03
+                </span>
               </div>
 
-              <p className="text-fg-muted mb-8 leading-relaxed">{pkg.description}</p>
+              <h3
+                className={`display-tight text-[clamp(2rem,3vw,2.6rem)] leading-[1] mb-3 ${
+                  t.accent ? "text-ink" : "text-fg"
+                }`}
+              >
+                {t.name}
+              </h3>
+              <p
+                className={`text-[14px] leading-[1.45] mb-10 ${
+                  t.accent ? "text-ink/60" : "text-fg-muted"
+                }`}
+              >
+                {t.sub}
+              </p>
 
-              <ul className="space-y-3 mb-10 flex-grow">
-                {pkg.features.map((f) => (
-                  <li key={f} className="flex gap-3 text-sm text-fg/85 leading-snug">
-                    <span className="text-brand mt-1 shrink-0">—</span>
-                    <span>{f}</span>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span
+                  className={`display tnum text-[clamp(3rem,5vw,4.4rem)] leading-none ${
+                    t.accent ? "text-ink" : "text-fg"
+                  }`}
+                >
+                  {t.price}
+                </span>
+              </div>
+              <div
+                className={`font-mono text-[12px] tracking-[0.08em] mb-8 ${
+                  t.accent ? "text-ink/50" : "text-fg-muted"
+                }`}
+              >
+                {t.cadence}
+              </div>
+
+              <div
+                className={`h-px w-full mb-7 ${
+                  t.accent ? "bg-ink/10" : "bg-fg/10"
+                }`}
+              />
+
+              <p
+                className={`text-[14.5px] leading-[1.6] tracking-[-0.005em] mb-7 ${
+                  t.accent ? "text-ink/75" : "text-fg-muted"
+                }`}
+              >
+                {t.description}
+              </p>
+
+              <ul className="space-y-3 mb-10 flex-1">
+                {t.bullets.map((b, j) => (
+                  <li
+                    key={j}
+                    className={`flex items-start gap-3 text-[14px] leading-[1.5] ${
+                      t.accent ? "text-ink/80" : "text-fg/85"
+                    }`}
+                  >
+                    <span
+                      className={`mt-[7px] w-1 h-1 rounded-full flex-shrink-0 ${
+                        t.accent ? "bg-gold-500" : "bg-gold"
+                      }`}
+                    />
+                    {b}
                   </li>
                 ))}
               </ul>
 
               <a
-                href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+                href={t.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block text-center py-3.5 text-sm tracking-wide transition-colors ${
-                  pkg.highlight
-                    ? "bg-brand text-ink hover:bg-brand-400"
-                    : "border border-fg/15 text-fg hover:border-brand hover:text-brand"
-                }`}
+                className={t.accent ? "btn-dark w-full justify-center" : "btn-primary w-full justify-center"}
               >
-                Book a strategy call →
+                {t.cta}
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                  <path
+                    d="M2.5 6.5h8M6.5 2.5l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <p className="text-center text-sm text-fg-muted mt-12 max-w-2xl mx-auto">
-          Not sure which? Book a call. I&apos;ll run the math on your audience
-          live and tell you which fits — even if it&apos;s &quot;not yet.&quot;
-        </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="mt-14 text-center text-fg-muted text-[13.5px] max-w-[640px] mx-auto leading-[1.6]"
+        >
+          Pricing in USD. Pay via card (US/UK/CA/AU agents) or international
+          wire. 30-day refund clause applies to pilots. Unsupported CRM adds
+          $500 to install.
+        </motion.p>
       </div>
     </section>
   );

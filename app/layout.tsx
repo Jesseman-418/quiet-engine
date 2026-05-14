@@ -1,52 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Quiet Engine — Product build + email engine for creators",
+  title: "The Listing Engine — Resurrect dormant CRM leads",
   description:
-    "We build the digital product. We write the emails that sell it. You stay the face. Three service tiers for creators with 10K–100K audience.",
+    "AI engine that pulls dormant leads from your CRM, scores them HOT/WARM/COLD, and drafts personalized re-engagement in your voice. Installed in 7 days. For top-producing real estate agents.",
   keywords: [
-    "quiet engine",
-    "creator agency",
-    "digital product launch",
-    "revenue share partnership",
-    "email copywriting retainer",
-    "ghostwriting for creators",
-    "course creation agency",
-    "newsletter monetization",
+    "listing engine",
+    "real estate AI",
+    "dormant lead resurrector",
+    "CRM re-engagement",
+    "real estate automation",
+    "top producer tools",
+    "lead nurture AI",
   ],
   openGraph: {
-    title: "Quiet Engine — Product build + email engine for creators",
+    title: "The Listing Engine — Resurrect dormant CRM leads",
     description:
-      "We build the digital product. We write the emails. You stay the face. Three service tiers.",
+      "AI engine that pulls dormant leads, scores them, and drafts personalized re-engagement in your voice. Installed in 7 days.",
     type: "website",
     locale: "en_US",
-    siteName: "Quiet Engine",
+    siteName: "The Listing Engine",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quiet Engine — Product build + email engine for creators",
+    title: "The Listing Engine",
     description:
-      "We build the digital product. We write the emails. You stay the face.",
+      "Resurrect dormant CRM leads. Installed in 7 days. For top-producing real estate agents.",
   },
   robots: { index: true, follow: true },
 };
@@ -54,7 +45,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0a0a0a",
+  themeColor: "#08070a",
   colorScheme: "dark",
 };
 
@@ -66,9 +57,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${instrumentSerif.variable}`}
+      style={
+        {
+          "--font-sans": GeistSans.style.fontFamily,
+          "--font-mono": GeistMono.style.fontFamily,
+        } as React.CSSProperties
+      }
     >
-      <body className="font-sans bg-ink text-fg">{children}</body>
+      <body className="font-sans bg-ink text-fg antialiased">{children}</body>
     </html>
   );
 }

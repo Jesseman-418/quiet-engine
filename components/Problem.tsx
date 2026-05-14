@@ -1,48 +1,97 @@
-const points = [
-  {
-    n: "01",
-    title: "Audience, no product",
-    body: "10K+ engaged followers, no productized offer. Every month without one = revenue compounding for someone else.",
-  },
-  {
-    n: "02",
-    title: "Product, no email engine",
-    body: "You have the course or cohort. Launch emails get 12% open. Sales calendar is a graveyard between launches.",
-  },
-  {
-    n: "03",
-    title: "Doing both is impossible solo",
-    body: "Build OR sell — not both, not weekly, not at the cadence the algorithm rewards. Hiring two specialists costs $8K/mo.",
-  },
-];
+"use client";
+
+import { motion } from "framer-motion";
 
 export default function Problem() {
   return (
-    <section id="how" className="py-32 lg:py-40 border-t border-white/[0.08] px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-20 md:mb-28">
-          <div className="md:col-span-2">
-            <span className="marker">02 — Problem</span>
+    <section className="relative section-pad px-6 lg:px-10 border-t border-fg/[0.06] overflow-hidden">
+      <div className="max-w-[1280px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-3 mb-12 lg:mb-16"
+        >
+          <span className="eyebrow">001 — The graveyard</span>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-12">
+          <div className="lg:col-span-7">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="display text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[0.92]"
+            >
+              Your CRM is a{" "}
+              <span className="serif-italic text-gold">graveyard</span>.
+              <br />
+              <span className="text-fg-muted">You just don&apos;t see it.</span>
+            </motion.h2>
           </div>
-          <div className="md:col-span-8">
-            <h2 className="display text-4xl md:text-6xl leading-[0.95] mb-6">
-              The audience is the easy part.
-            </h2>
-            <p className="text-lg md:text-xl text-fg-muted max-w-2xl leading-snug">
-              The product + the engine that sells it is where creators get
-              stuck. Most 10K–100K creators are leaving six figures on the
-              table because they&apos;re missing one half of the loop.
-            </p>
+
+          <div className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-fg/[0.08]">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 1,
+                delay: 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="text-fg-muted text-[16.5px] leading-[1.65] tracking-[-0.01em]"
+            >
+              Every showing. Every open house. Every Zillow inquiry. Every
+              &ldquo;we&rsquo;re thinking about it.&rdquo; They stack up for
+              years and almost nobody touches them again.
+              <br />
+              <br />
+              <span className="text-fg">
+                A top producer at $5M+ GCI sits on 300–1,000+ dormant leads at
+                any time. Most never get a second message.
+              </span>
+            </motion.p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-white/[0.08] border border-white/[0.08]">
-          {points.map((p) => (
-            <div key={p.n} className="bg-ink p-10 md:p-12">
-              <div className="marker mb-6">{p.n}</div>
-              <h3 className="display text-2xl md:text-3xl mb-4">{p.title}</h3>
-              <p className="text-fg-muted leading-relaxed">{p.body}</p>
-            </div>
+        <div className="mt-24 lg:mt-32 grid grid-cols-1 md:grid-cols-3 gap-px bg-fg/[0.06] border border-fg/[0.06] rounded-2xl overflow-hidden">
+          {[
+            {
+              k: "92%",
+              l: "of leads never get re-contacted after 90 days",
+            },
+            {
+              k: "4–10",
+              l: "extra closings/yr possible at 1% re-engagement",
+            },
+            {
+              k: "$36K–$90K",
+              l: "avg commission trapped in dormant pipeline",
+            },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{
+                duration: 0.9,
+                delay: i * 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="bg-ink p-10 lg:p-12 flex flex-col gap-6 group hover:bg-ink-800 transition-colors"
+            >
+              <div className="display-tight tnum text-[3rem] lg:text-[4rem] text-fg leading-none">
+                {s.k}
+              </div>
+              <div className="rule-gold w-12 group-hover:w-24 transition-all duration-500" />
+              <div className="text-fg-muted text-[14.5px] leading-[1.55] tracking-[-0.01em]">
+                {s.l}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
