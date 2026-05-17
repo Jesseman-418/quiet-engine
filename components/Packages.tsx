@@ -18,7 +18,7 @@ const tiers = [
       "Slack support window",
     ],
     cta: "Reserve a pilot",
-    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    href: "https://calendly.com/njessemandevamirtham/listing-engine",
     accent: false,
   },
   {
@@ -37,7 +37,7 @@ const tiers = [
       "You own the system",
     ],
     cta: "Book a demo",
-    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    href: "https://calendly.com/njessemandevamirtham/listing-engine",
     accent: true,
   },
   {
@@ -56,7 +56,7 @@ const tiers = [
       "$2,400 saved vs monthly",
     ],
     cta: "Talk to Jesseman",
-    href: "https://calendly.com/njessemandevamirtham/15-min-strategy-call",
+    href: "https://calendly.com/njessemandevamirtham/listing-engine",
     accent: false,
   },
 ];

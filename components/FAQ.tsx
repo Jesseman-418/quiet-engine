@@ -9,6 +9,10 @@ const faqs = [
     a: "Follow Up Boss, Lofty, Chime, kvCORE, Sierra Interactive, and BoldTrail out of the box. Anything with an API can be wired in (+$500 to install).",
   },
   {
+    q: "How is this different from Real Geeks AI, Lead Wrangler, or FUB's built-in nurture?",
+    a: "Those are SaaS tools — generic logic, generic voice, owned by them. The Listing Engine is installed on your stack: your CRM, your Claude API key, your Google Workspace, your voice trained on your closed conversations. They sell access. We hand you the keys. Cancel us and the engine keeps running.",
+  },
+  {
     q: "Do you use my data to train your AI?",
     a: "No. Your data stays in your Google Workspace, your CRM, and your Claude API account. We run on n8n self-hosted infrastructure. Nothing routes through us.",
   },
@@ -18,7 +22,7 @@ const faqs = [
   },
   {
     q: "Will the emails sound like me?",
-    a: "We train the voice model on your last 50 closed conversations before write a single draft. Most agents say the output sounds more like them than their own drafts do.",
+    a: "We train the voice model on whatever you've got — 5 emails minimum, 50 closed conversations ideal. Most clients hand over 12–15. The output sounds more like them than their own drafts do.",
   },
   {
     q: "Do I own the system after install?",

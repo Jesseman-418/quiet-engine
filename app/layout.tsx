@@ -13,6 +13,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://listing-engine-site.vercel.app"),
   title: "The Listing Engine — Resurrect dormant CRM leads",
   description:
     "AI engine that pulls dormant leads from your CRM, scores them HOT/WARM/COLD, and drafts personalized re-engagement in your voice. Installed in 7 days. For top-producing real estate agents.",

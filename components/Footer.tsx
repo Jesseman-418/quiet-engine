@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3 text-[14px] text-fg/85">
               <li>
                 <a
-                  href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+                  href="https://calendly.com/njessemandevamirtham/listing-engine"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-gold transition-colors"

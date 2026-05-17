@@ -34,21 +34,18 @@ export default function Navbar() {
           <a href="#how" className="hover:text-fg transition-colors">
             How it works
           </a>
-          <a href="#pricing" className="hover:text-fg transition-colors">
-            Pricing
-          </a>
           <a href="#faq" className="hover:text-fg transition-colors">
             FAQ
           </a>
         </nav>
 
         <a
-          href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+          href="https://calendly.com/njessemandevamirtham/listing-engine"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary text-[13px] py-2.5 px-4"
         >
-          Book demo
+          Book the call
           <svg
             width="12"
             height="12"

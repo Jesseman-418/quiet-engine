@@ -43,8 +43,18 @@ export default function CTA() {
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 max-w-[580px] mx-auto text-fg-muted text-[17px] leading-[1.6] tracking-[-0.01em]"
         >
-          15-min Zoom. Run the engine live on your CRM. Decide on the call.
-          Pay only if you say yes.
+          15-min Zoom. Live walk-through on your CRM data. Zero pitch deck. Zero pressure.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, delay: 0.35 }}
+          className="mt-6 max-w-[640px] mx-auto text-fg/55 text-[13.5px] leading-[1.6] tracking-[-0.005em]"
+        >
+          Three locked tiers — $1,500 pilot · $4,500 + $1,200/mo full engine ·
+          custom for brokerages. Full math on the call, not in a deck.
         </motion.p>
 
         <motion.div
@@ -55,12 +65,12 @@ export default function CTA() {
           className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <a
-            href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+            href="https://calendly.com/njessemandevamirtham/listing-engine"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-[16px] py-4 px-7"
           >
-            Book the 15-min demo
+            Book the 15-min call
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path
                 d="M3 7h8M7 3l4 4-4 4"

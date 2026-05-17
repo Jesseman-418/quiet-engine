@@ -64,9 +64,8 @@ export default function Hero() {
           custom={3}
           className="mt-12 lg:mt-14 max-w-[560px] mx-auto text-center text-fg-muted text-[17.5px] lg:text-[19px] leading-[1.55] tracking-[-0.012em]"
         >
-          AI engine that pulls every cold lead from your CRM, scores them
-          HOT/WARM/COLD, and drafts re-engagement in your voice.{" "}
-          <span className="text-fg">100 leads. 4 minutes. Your Gmail.</span>
+          When a buyer tours your listing, asks 8 questions, then ghosts for 6 months — what happens to them?{" "}
+          <span className="text-fg">15 min on Zoom. No pitch. Just a real conversation about the back-half of your funnel.</span>
         </motion.p>
 
         <motion.div
@@ -77,12 +76,12 @@ export default function Hero() {
           className="mt-12 lg:mt-14 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <a
-            href="https://calendly.com/njessemandevamirtham/15-min-strategy-call"
+            href="https://calendly.com/njessemandevamirtham/listing-engine"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Book a 15-min demo
+            Book the 15-min call
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path
                 d="M3 7h8M7 3l4 4-4 4"
@@ -93,9 +92,6 @@ export default function Hero() {
               />
             </svg>
           </a>
-          <a href="#product" className="btn-ghost">
-            See the engine
-          </a>
         </motion.div>
 
         <motion.div
@@ -103,13 +99,43 @@ export default function Hero() {
           animate={mounted ? "show" : "hidden"}
           variants={fadeUp}
           custom={5}
-          className="mt-24 lg:mt-32 grid grid-cols-2 md:grid-cols-4 gap-px bg-fg/[0.06] border border-fg/[0.06] rounded-2xl overflow-hidden backdrop-blur-md"
+          className="mt-10 lg:mt-12 flex flex-col items-center gap-3"
+        >
+          <span className="eyebrow-muted text-[10px]">Works with</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 max-w-[640px]">
+            {[
+              "Follow Up Boss",
+              "Lofty",
+              "Chime",
+              "kvCORE",
+              "Sierra",
+              "BoldTrail",
+            ].map((crm, i, arr) => (
+              <span
+                key={crm}
+                className="flex items-center gap-5 text-[13.5px] text-fg/75 tracking-[-0.01em]"
+              >
+                {crm}
+                {i < arr.length - 1 && (
+                  <span className="text-fg/25 hidden sm:inline">·</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          animate={mounted ? "show" : "hidden"}
+          variants={fadeUp}
+          custom={6}
+          className="mt-16 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-fg/[0.06] border border-fg/[0.06] rounded-2xl overflow-hidden backdrop-blur-md"
         >
           {[
-            { v: "7", l: "days to install" },
-            { v: "500+", l: "dormant leads/avg" },
-            { v: "6–10×", l: "ROI per closing" },
-            { v: "$1,500", l: "pilot — refund clause" },
+            { v: "15", l: "min on Zoom" },
+            { v: "live", l: "demo on your data" },
+            { v: "0", l: "pitch · 0 pressure" },
+            { v: "1:1", l: "with the founder" },
           ].map((m, i) => (
             <div
               key={i}
