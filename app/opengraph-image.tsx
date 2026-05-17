@@ -23,6 +23,7 @@ export default async function Image() {
       >
         <div
           style={{
+            display: "flex",
             fontSize: 18,
             letterSpacing: "0.24em",
             textTransform: "uppercase",
@@ -44,6 +45,7 @@ export default async function Image() {
         >
           <div
             style={{
+              display: "flex",
               fontSize: 92,
               lineHeight: 1.02,
               letterSpacing: "-0.035em",
@@ -52,15 +54,27 @@ export default async function Image() {
               maxWidth: 900,
             }}
           >
-            Resurrect dormant{" "}
-            <span style={{ color: "#d4b86a", fontStyle: "italic" }}>
-              CRM leads.
-            </span>
+            Resurrect dormant leads.
           </div>
 
           <div
             style={{
-              fontSize: 28,
+              display: "flex",
+              fontSize: 38,
+              lineHeight: 1.02,
+              letterSpacing: "-0.035em",
+              fontStyle: "italic",
+              color: "#d4b86a",
+              marginTop: 8,
+            }}
+          >
+            Installed in 7 days. You own the system.
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              fontSize: 26,
               lineHeight: 1.4,
               color: "#a8a09a",
               marginTop: 36,
@@ -68,8 +82,8 @@ export default async function Image() {
               letterSpacing: "-0.01em",
             }}
           >
-            For top-producing real estate agents. Installed in 7 days. You own
-            the system.
+            For top-producing real estate agents. 1:1 with the founder. 0
+            pitch, 0 pressure.
           </div>
         </div>
 
@@ -84,7 +98,7 @@ export default async function Image() {
             color: "#88807a",
           }}
         >
-          <div style={{ display: "flex", gap: 24 }}>
+          <div style={{ display: "flex", gap: 18 }}>
             <span>FUB</span>
             <span>·</span>
             <span>Lofty</span>
@@ -97,7 +111,9 @@ export default async function Image() {
             <span>·</span>
             <span>BoldTrail</span>
           </div>
-          <div style={{ color: "#d4b86a" }}>15-min call →</div>
+          <div style={{ display: "flex", color: "#d4b86a" }}>
+            15-min call →
+          </div>
         </div>
       </div>
     ),
